@@ -36,6 +36,10 @@ export class ThemeSwitcherListComponent {
       title: 'Corporate',
       key: 'corporate',
     },
+    {
+      title: 'Dark',
+      key: 'everdark',
+    },
   ];
 
   constructor(
