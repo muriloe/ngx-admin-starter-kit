@@ -9,6 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './@core/core.module';
+import { NbAuthJWTToken,  } from '@nebular/auth';
+import { AuthGuard } from './auth-guard.service';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -31,6 +33,7 @@ import { HttpModule } from '@angular/http';
   bootstrap: [AppComponent],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
+    [ AuthGuard ]
   ],
 })
 export class AppModule {
