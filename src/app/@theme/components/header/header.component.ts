@@ -18,14 +18,13 @@ export class HeaderComponent implements OnInit {
   user: User;
 
   userMenu = [{
-    title: 'Profile'
+    title: 'Profile',
   }, {
-    title: 'Log out'
+    title: 'Log out',
   }];
 
   constructor(private sidebarService: NbSidebarService,
     private menuService: NbMenuService,
-    private userService: UserData,
     private analyticsService: AnalyticsService,
     private authService: NbAuthService) {
     this.authService.onTokenChange()
