@@ -12,7 +12,7 @@ export class DashboardComponent {
     this.lottieConfig = {
       path: 'assets/success-animation.json',
       autoplay: true,
-      loop: true
+      loop: true,
     };
   }
 }
