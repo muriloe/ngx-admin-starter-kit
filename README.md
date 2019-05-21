@@ -1,4 +1,4 @@
-# Started kit
+# Starter kit
 This is my implementations of [ngx-admin](https://github.com/akveo/ngx-admin) [starter-kit](https://github.com/akveo/ngx-admin/tree/starter-kit) for my personal projects.
 
 See the [Definitions to starter kit](https://github.com/muriloe/ngx-admin-starter-kit/issues/1) to know what was made.
