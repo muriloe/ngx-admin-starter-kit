@@ -40,6 +40,7 @@ import {
 import {
   ServerInfo
 } from '../../app/shared/endpoint';
+import { nextContext } from '@angular/core/src/render3';
 
 var endPoint = ServerInfo.getServerName();
 
@@ -92,6 +93,11 @@ export const NB_CORE_PROVIDERS = [
         token: {
           class: NbAuthJWTToken,
           key: 'jwt', // this parameter tells where to look for the token
+        },
+        errors: {
+          getter: (module, res, options) => {
+            return res.error ? res.error.message : options[module].defaultErrors;
+          },
         },
       }),
     ],

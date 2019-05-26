@@ -17,6 +17,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { ThemeModule } from './@theme/theme.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpModule } from '@angular/http';
+import { NbSecurityModule, NbRoleProvider } from '@nebular/security';
+import { RoleProvider } from './auth/role.provider';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,11 +31,24 @@ import { HttpModule } from '@angular/http';
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
     CoreModule.forRoot(),
+    NbSecurityModule.forRoot({
+      accessControl: {
+        'ADMIN-NORMAL': {
+          view: ['dashboard'],
+          create: ['dashboard'],
+        },
+        'ADMIN-GOD': {
+          parent: 'ADMIN-NORMAL',
+          remove: 'dashboard',
+        }
+      },
+    }),
   ],
   bootstrap: [AppComponent],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
-    [ AuthGuard ]
+    [ AuthGuard ],
+    { provide: NbRoleProvider, useClass: RoleProvider }
   ],
 })
 export class AppModule {
